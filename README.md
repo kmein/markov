@@ -1,7 +1,7 @@
 # markov
 Markov-chain based text generator (inspired by a Python text generator from
-chapter 7 ("Ich verstehe nur Bahnhof – der Goethe-Generator") of "Coding for
-Fun mit Python" by Lars Heppert.
+chapter 7 (_Ich verstehe nur Bahnhof – der Goethe-Generator_) of _Coding for
+Fun mit Python_ by Lars Heppert).
 
 ## Building
 Before attempting to build, make sure you have
