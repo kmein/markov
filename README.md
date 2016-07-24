@@ -41,4 +41,15 @@ family were still in her hot resentment, that she had to keep mum. But let's
 swear again, anyway. It's more surer." "I'm agreed." So they swore again with
 a startled look in them-- "My! I never heard the talk went on, till at last it
 considered a ship and therefore belongs the
+
+$ stack exec markov -- goethe_die-leiden-des-jungen-werther-2.txt --length=100
+Schmerzens, küßten ihm die Pistolen." --"Ich lasse ihm glückliche Reise
+wünschen." sagte er zum Jungen. --Das fiel auf sie wie ein verlechter
+Eimer. Ich habe manchen sterben sehen; aber so eingeschränkt ist die
+Zeit, da er sich bald wieder und trug dem Amtmann vorstellen wollte, schon
+halblaut auszusprechen. Als er sich in ewigem Unfrieden lebte, schien ihm
+auch der Zustand andrer nur bedenklicher und verworrner, er glaubte, das
+schöne Herz. War es Unwille über seine Verwegenheit? War es eine herzliche,
+freundschaftliche Schonung, weil sie wußte, wie viel fehlgeschlagenen
+Hoffnungen, und dann--ich ging in der Stube auf und ab, und weil Geburtsort
 ```
