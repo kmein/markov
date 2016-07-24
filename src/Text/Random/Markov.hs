@@ -1,6 +1,7 @@
 module Text.Random.Markov where
 
 import Control.Arrow (first)
+
 import Data.Char (isUpper)
 import Data.Vector (Vector, (!))
 import qualified Data.Vector as V
@@ -8,6 +9,7 @@ import Data.Maybe (fromMaybe)
 import qualified Data.Map.Strict as M ((!), Map, empty, insertWith)
 import qualified Data.Text as T (Text, head, unwords, words)
 import qualified Data.Text.IO as T (readFile)
+
 import System.Random (RandomGen, randomR, newStdGen)
 
 type TextWord = T.Text
