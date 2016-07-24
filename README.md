@@ -2,16 +2,9 @@
 Markov-chain based text generator
 
 ## Building
-```
-$ stack build
-```
-
-## Usage
-
-# markov
-Markov-chain based text generator
-
-## Building
+Before attempting to build, make sure you have
+[`stack`](https://haskellstack.org) installed, then run
+the following command in the cloned repository.
 ```
 $ stack build
 ```
