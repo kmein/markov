@@ -1,5 +1,7 @@
 # markov
-Markov-chain based text generator
+Markov-chain based text generator (inspired by a Python text generator from
+chapter 7 ("Ich verstehe nur Bahnhof – der Goethe-Generator") of "Coding for
+Fun mit Python" by Lars Heppert.
 
 ## Building
 Before attempting to build, make sure you have
