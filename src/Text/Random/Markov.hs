@@ -13,16 +13,16 @@ import qualified Data.Text.IO as T (readFile)
 import System.Random (RandomGen, randomR, newStdGen)
 
 type TextWord = T.Text
-type TextText = Vector TextWord
-type TextCache = M.Map (TextWord, TextWord) TextText
+type TextCorpus = Vector TextWord
+type TextCache = M.Map (TextWord, TextWord) TextCorpus
 
 choice :: (RandomGen g) => g -> Vector a -> (a, g)
 choice g xs = (xs !) `first` randomR (0, V.length xs - 1) g
 
-startWords :: TextText -> TextText
+startWords :: TextCorpus -> TextCorpus
 startWords = V.filter (isUpper . T.head)
 
-triplets :: TextText -> Vector (TextWord, TextWord, TextWord)
+triplets :: TextCorpus -> Vector (TextWord, TextWord, TextWord)
 triplets wrds =
     if size < 3
        then V.empty
@@ -31,12 +31,12 @@ triplets wrds =
     where
       size = V.length wrds
 
-createStatistics :: TextText -> TextCache
+createStatistics :: TextCorpus -> TextCache
 createStatistics =
     V.foldl' (\acc (w1, w2, w3) -> M.insertWith (V.++) (w1, w2) (V.singleton w3) acc)
         M.empty . triplets
 
-generateMarkovText :: (RandomGen g) => TextText -> g -> Int -> T.Text
+generateMarkovText :: (RandomGen g) => TextCorpus -> g -> Int -> T.Text
 generateMarkovText wrds gen size =
     T.unwords $ V.toList $ generate seedWord nextWord gen' size
     where
