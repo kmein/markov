@@ -13,7 +13,9 @@ import qualified Data.Text.IO as T (readFile)
 import System.Random (RandomGen, randomR, newStdGen)
 
 type TextWord = T.Text
+
 type TextCorpus = Vector TextWord
+
 type TextCache = M.Map (TextWord, TextWord) TextCorpus
 
 choice :: (RandomGen g) => g -> Vector a -> (a, g)
@@ -56,7 +58,7 @@ generateMarkovText wrds gen size =
 
 textGen :: Int -> FilePath -> IO T.Text
 textGen len file =
-    generateMarkovText
-    <$> (V.fromList <$> T.words <$> T.readFile file)
+    (generateMarkovText . V.fromList . T.words)
+    <$> T.readFile file
     <*> newStdGen
     <*> pure len
