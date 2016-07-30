@@ -24,19 +24,19 @@ choice g xs = (xs !) `first` randomR (0, V.length xs - 1) g
 startWords :: TextCorpus -> TextCorpus
 startWords = V.filter (isUpper . T.head)
 
-triplets :: TextCorpus -> Vector (TextWord, TextWord, TextWord)
-triplets wrds =
-    if size < 3
-       then V.empty
-       else flip fmap (V.fromList [0 .. (size - 3)]) $ \i ->
-           (wrds ! i, wrds ! (i+1), wrds ! (i+2))
-    where
-      size = V.length wrds
-
 createStatistics :: TextCorpus -> TextCache
 createStatistics =
     V.foldl' (\acc (w1, w2, w3) -> M.insertWith (V.++) (w1, w2) (V.singleton w3) acc)
         M.empty . triplets
+    where
+      triplets :: TextCorpus -> Vector (TextWord, TextWord, TextWord)
+      triplets wrds =
+          if size < 3
+             then V.empty
+             else flip fmap (V.fromList [0 .. (size - 3)]) $ \i ->
+                 (wrds ! i, wrds ! (i+1), wrds ! (i+2))
+          where
+            size = V.length wrds
 
 generateMarkovText :: (RandomGen g) => TextCorpus -> g -> Int -> T.Text
 generateMarkovText wrds gen size =
