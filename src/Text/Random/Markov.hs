@@ -18,11 +18,13 @@ type TextCorpus = V.Vector TextWord
 
 type TextCache = M.Map (TextWord, TextWord) (M.Map TextWord Int)
 
+choice :: (RandomGen g) => g -> V.Vector a -> (a, g)
+choice g xs = (xs !) `first` randomR (0, V.length xs - 1) g
+
 weightedChoice :: (RandomGen g) => g -> M.Map a Int -> (a, g)
 weightedChoice g = choice g . weighted
-    where
-      weighted = V.concatMap (uncurry $ flip V.replicate) . V.fromList . M.toList
-      choice g xs = (xs !) `first` randomR (0, V.length xs - 1) g
+    where weighted = V.concatMap (uncurry $ flip V.replicate) . V.fromList . M.toList
+
 
 startWords :: TextCorpus -> TextCorpus
 startWords = V.filter (isUpper . T.head)
