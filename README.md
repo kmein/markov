@@ -1,4 +1,4 @@
-# markov
+# markov [![Build Status](https://travis-ci.org/kmein/markov.svg?branch=master)](https://travis-ci.org/kmein/markov)
 Markov-chain based text generator inspired by a Python text generator from
 chapter 7 – _Ich verstehe nur Bahnhof – der Goethe-Generator_ – of _Coding for
 Fun mit Python_ by Lars Heppert.
